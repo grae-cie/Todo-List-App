@@ -22,9 +22,15 @@ function render(){
   todoContent.innerHTML = ""
   todos.forEach(function(newTodo){
   let element = document.createElement("div")
-  const deleteBtn = document.createElement("button")
+  let deleteBtn = document.createElement("button")
+  deleteBtn.innerText = "Delete"
   element.innerText = newTodo 
   todoContent.appendChild(element)
+  element.appendChild(deleteBtn)
+  deleteBtn.addEventListener("click", function(){
+    localStorage.clear()
+    element.innerHTML = ""
+  })
 
   })
 }
